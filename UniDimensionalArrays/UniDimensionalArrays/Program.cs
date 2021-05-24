@@ -9,9 +9,9 @@ namespace UniDimensionalArrays
         {
             int[] array = { 2, 5, -100, 20, 500 };
 
-            int max = ArrayHelper.Max(array);
+            int[] elements = ArrayHelper.BubbleSortAsc(array);
 
-            Console.WriteLine($"max={max}");
+            ArrayHelper.Print("elements", elements);
         }
     }
 }
