@@ -13,10 +13,19 @@
             <summary>
             Calculates the minimum element.
             If min cannot be determined (e.g.: array is null, or empty) it will
-            return <see cref="F:System.Int32.MaxValue"/>.
+            return <see cref="F:System.Int32.MinValue"/>.
             </summary>
             <param name="array">The array.</param>
             <returns>The min value.</returns>
+        </member>
+        <member name="M:ArrayUtilities.ArrayHelper.Max(System.Int32[])">
+            <summary>
+            Calculates the maximum element.
+            If max cannot be determined (e.g.: array is null, or empty) it will
+            return <see cref="F:System.Int32.MaxValue"/>.
+            </summary>
+            <param name="array">The array.</param>
+            <returns>The max value.</returns>
         </member>
     </members>
 </doc>

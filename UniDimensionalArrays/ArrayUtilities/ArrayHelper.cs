@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ArrayUtilities
+﻿namespace ArrayUtilities
 {
     /// <summary>
     /// Utilites for arrays.
@@ -12,7 +8,7 @@ namespace ArrayUtilities
         /// <summary>
         /// Calculates the minimum element.
         /// If min cannot be determined (e.g.: array is null, or empty) it will
-        /// return <see cref="int.MaxValue"/>.
+        /// return <see cref="int.MinValue"/>.
         /// </summary>
         /// <param name="array">The array.</param>
         /// <returns>The min value.</returns>
@@ -47,6 +43,39 @@ namespace ArrayUtilities
             }
 
             return min;
+        }
+
+        /// <summary>
+        /// Calculates the maximum element.
+        /// If max cannot be determined (e.g.: array is null, or empty) it will
+        /// return <see cref="int.MaxValue"/>.
+        /// </summary>
+        /// <param name="array">The array.</param>
+        /// <returns>The max value.</returns>
+        public static int Max(int[] array)
+        {
+            if (array is null)
+            {
+                return int.MaxValue;
+            }
+
+            if (array.Length == 0)
+            {
+                return int.MaxValue;
+            }
+
+            int max = array[0];
+
+            for (int i = 1; i < array.Length; i++)
+            {
+                int currentElement = array[i];
+                if (currentElement > max)
+                {
+                    max = currentElement;
+                }
+            }
+
+            return max;
         }
     }
 }
