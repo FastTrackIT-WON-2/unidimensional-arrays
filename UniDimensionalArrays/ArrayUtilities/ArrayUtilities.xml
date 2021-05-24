@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ArrayUtilities</name>
+    </assembly>
+    <members>
+        <member name="T:ArrayUtilities.ArrayHelper">
+            <summary>
+            Utilites for arrays.
+            </summary>
+        </member>
+        <member name="M:ArrayUtilities.ArrayHelper.Min(System.Int32[])">
+            <summary>
+            Calculates the minimum element.
+            If min cannot be determined (e.g.: array is null, or empty) it will
+            return <see cref="F:System.Int32.MaxValue"/>.
+            </summary>
+            <param name="array">The array.</param>
+            <returns>The min value.</returns>
+        </member>
+    </members>
+</doc>
