@@ -57,6 +57,13 @@
             <param name="n">The number till which we calculate fibonacci sequence.</param>
             <returns>The fibonacci sequence till n.</returns>
         </member>
+        <member name="M:ArrayUtilities.ArrayHelper.PrimesEratostene(System.Int32)">
+            <summary>
+            Returns the sequence of prime numbers till "n" using the Eratostene sieve algorithm.
+            </summary>
+            <param name="n">The number till which we return prime numbers.</param>
+            <returns>The sequence of prime numbers till "n".</returns>
+        </member>
         <member name="M:ArrayUtilities.ArrayHelper.Print(System.String,System.Int32[])">
             <summary>
             Prints the array to the console.
@@ -70,6 +77,25 @@
             </summary>
             <param name="label">Label used before the array elements.</param>
             <param name="array">The array elements.</param>
+        </member>
+        <member name="M:ArrayUtilities.ArrayHelper.ReadMatrix(System.String)">
+            <summary>
+            Reads a matrix from console.
+            </summary>
+            <param name="label">The matrix label.</param>
+            <returns>The matrix, as read from the console.</returns>
+        </member>
+        <member name="M:ArrayUtilities.ArrayHelper.PrintMatrix(System.String,System.Int32[0:,0:])">
+            <summary>
+            Prints a matrix to the console.
+            </summary>
+            <param name="label">The matrix label.</param>
+            <param name="matrix">The matrix.</param>
+        </member>
+        <member name="T:ArrayUtilities.ConsoleHelper">
+            <summary>
+            Utilities for working with the console.
+            </summary>
         </member>
         <member name="T:ArrayUtilities.SortDirection">
             <summary>
