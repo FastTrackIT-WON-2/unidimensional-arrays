@@ -80,7 +80,13 @@ namespace ArrayUtilities
             return max;
         }
 
-        public static int[] BubbleSortAsc(int[] array)
+        /// <summary>
+        /// Sorts the array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="array">The original array.</param>
+        /// <param name="sortDirection">The sort direction</param>
+        /// <returns>The array having the elements sorted.</returns>
+        public static int[] BubbleSort(int[] array, SortDirection sortDirection)
         {
             if (array is null)
             {
@@ -140,7 +146,20 @@ namespace ArrayUtilities
                 areElementsOrdered = true;
                 for (int i = 0; i < array.Length - 1; i++)
                 {
-                    if (array[i] > array[i + 1])
+                    bool isSwapNeeded;
+                    switch (sortDirection)
+                    {
+                        case SortDirection.Descending:
+                            isSwapNeeded = array[i] < array[i + 1];
+                            break;
+
+                        case SortDirection.Ascending:
+                        default:
+                            isSwapNeeded = array[i] > array[i + 1];
+                            break;
+                    }
+
+                    if (isSwapNeeded)
                     {
                         // A     B     Temp
                         // A -> Temp (A gol)
@@ -161,6 +180,11 @@ namespace ArrayUtilities
             return array;
         }
 
+        /// <summary>
+        /// Prints the array to the console.
+        /// </summary>
+        /// <param name="label">Label used before the array elements.</param>
+        /// <param name="array">The array elements.</param>
         public static void Print(string label, int[] array)
         {
             string labelToPrint = label ?? "Array";

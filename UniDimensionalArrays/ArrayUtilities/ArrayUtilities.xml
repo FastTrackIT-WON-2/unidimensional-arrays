@@ -27,5 +27,35 @@
             <param name="array">The array.</param>
             <returns>The max value.</returns>
         </member>
+        <member name="M:ArrayUtilities.ArrayHelper.BubbleSort(System.Int32[],ArrayUtilities.SortDirection)">
+            <summary>
+            Sorts the array using the bubble sort algorithm.
+            </summary>
+            <param name="array">The original array.</param>
+            <param name="sortDirection">The sort direction</param>
+            <returns>The array having the elements sorted.</returns>
+        </member>
+        <member name="M:ArrayUtilities.ArrayHelper.Print(System.String,System.Int32[])">
+            <summary>
+            Prints the array to the console.
+            </summary>
+            <param name="label">Label used before the array elements.</param>
+            <param name="array">The array elements.</param>
+        </member>
+        <member name="T:ArrayUtilities.SortDirection">
+            <summary>
+            Enumerates the possible sort directions.
+            </summary>
+        </member>
+        <member name="F:ArrayUtilities.SortDirection.Ascending">
+            <summary>
+            Specifies ascending sort order.
+            </summary>
+        </member>
+        <member name="F:ArrayUtilities.SortDirection.Descending">
+            <summary>
+            Specifies descending sort order.
+            </summary>
+        </member>
     </members>
 </doc>

@@ -9,9 +9,11 @@ namespace UniDimensionalArrays
         {
             int[] array = { 2, 5, -100, 20, 500 };
 
-            int[] elements = ArrayHelper.BubbleSortAsc(array);
+            int[] elementsAsc = ArrayHelper.BubbleSort(array, SortDirection.Ascending);
+            ArrayHelper.Print("Elements (asc)", elementsAsc);
 
-            ArrayHelper.Print("elements", elements);
+            int[] elementsDesc = ArrayHelper.BubbleSort(array, SortDirection.Descending);
+            ArrayHelper.Print("Elements (desc)", elementsDesc);
         }
     }
 }
