@@ -27,6 +27,13 @@
             <param name="array">The array.</param>
             <returns>The max value.</returns>
         </member>
+        <member name="M:ArrayUtilities.ArrayHelper.Clone(System.Int32[])">
+            <summary>
+            Clones the original array into a new one, copying all elements.
+            </summary>
+            <param name="array">The original array.</param>
+            <returns>A clone containing the same elements.</returns>
+        </member>
         <member name="M:ArrayUtilities.ArrayHelper.BubbleSort(System.Int32[],ArrayUtilities.SortDirection)">
             <summary>
             Sorts the array using the bubble sort algorithm.
@@ -35,7 +42,29 @@
             <param name="sortDirection">The sort direction</param>
             <returns>The array having the elements sorted.</returns>
         </member>
+        <member name="M:ArrayUtilities.ArrayHelper.SelectionSort(System.Int32[],ArrayUtilities.SortDirection)">
+            <summary>
+            Sorts the array using the selection sort algorithm.
+            </summary>
+            <param name="array">The original array.</param>
+            <param name="sortDirection">The sort direction</param>
+            <returns>The array having the elements sorted.</returns>
+        </member>
+        <member name="M:ArrayUtilities.ArrayHelper.Fibonacci(System.Int32)">
+            <summary>
+            Calculates the fibonacci sequence till n.
+            </summary>
+            <param name="n">The number till which we calculate fibonacci sequence.</param>
+            <returns>The fibonacci sequence till n.</returns>
+        </member>
         <member name="M:ArrayUtilities.ArrayHelper.Print(System.String,System.Int32[])">
+            <summary>
+            Prints the array to the console.
+            </summary>
+            <param name="label">Label used before the array elements.</param>
+            <param name="array">The array elements.</param>
+        </member>
+        <member name="M:ArrayUtilities.ArrayHelper.Print(System.String,System.Int64[])">
             <summary>
             Prints the array to the console.
             </summary>

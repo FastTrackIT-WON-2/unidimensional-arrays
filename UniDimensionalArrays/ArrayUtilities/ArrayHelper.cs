@@ -81,6 +81,27 @@ namespace ArrayUtilities
         }
 
         /// <summary>
+        /// Clones the original array into a new one, copying all elements.
+        /// </summary>
+        /// <param name="array">The original array.</param>
+        /// <returns>A clone containing the same elements.</returns>
+        public static int[] Clone(int[] array)
+        {
+            if (array is null || array.Length == 0)
+            {
+                return new int[0];
+            }
+
+            int[] clone = new int[array.Length];
+            for (int i = 0; i < array.Length; i++)
+            {
+                clone[i] = array[i];
+            }
+
+            return clone;
+        }
+
+        /// <summary>
         /// Sorts the array using the bubble sort algorithm.
         /// </summary>
         /// <param name="array">The original array.</param>
@@ -88,15 +109,7 @@ namespace ArrayUtilities
         /// <returns>The array having the elements sorted.</returns>
         public static int[] BubbleSort(int[] array, SortDirection sortDirection)
         {
-            if (array is null)
-            {
-                return new int[0];
-            }
-
-            if (array.Length == 0)
-            {
-                return new int[0];
-            }
+            int[] result = Clone(array);
 
             // Index: 0 | 1 | 2 | 3 |
             // ----------------------
@@ -144,18 +157,18 @@ namespace ArrayUtilities
             do
             {
                 areElementsOrdered = true;
-                for (int i = 0; i < array.Length - 1; i++)
+                for (int i = 0; i < result.Length - 1; i++)
                 {
                     bool isSwapNeeded;
                     switch (sortDirection)
                     {
                         case SortDirection.Descending:
-                            isSwapNeeded = array[i] < array[i + 1];
+                            isSwapNeeded = result[i] < result[i + 1];
                             break;
 
                         case SortDirection.Ascending:
                         default:
-                            isSwapNeeded = array[i] > array[i + 1];
+                            isSwapNeeded = result[i] > result[i + 1];
                             break;
                     }
 
@@ -167,9 +180,9 @@ namespace ArrayUtilities
                         // Temp -> B (Temp devine gol)
                         // B     A    Temp
 
-                        int temp = array[i];
-                        array[i] = array[i + 1];
-                        array[i + 1] = temp;
+                        int temp = result[i];
+                        result[i] = result[i + 1];
+                        result[i + 1] = temp;
                         areElementsOrdered = false;
                         break;
                     }
@@ -177,7 +190,132 @@ namespace ArrayUtilities
             }
             while (!areElementsOrdered);
 
-            return array;
+            return result;
+        }
+
+        /// <summary>
+        /// Sorts the array using the selection sort algorithm.
+        /// </summary>
+        /// <param name="array">The original array.</param>
+        /// <param name="sortDirection">The sort direction</param>
+        /// <returns>The array having the elements sorted.</returns>
+        public static int[] SelectionSort(int[] array, SortDirection sortDirection)
+        {
+            int[] result = Clone(array);
+
+            // Index: 0 | 1 | 2 | 3 |
+            // ----------------------
+            // Value: 3 | 2 | 4 | 1 |
+            // ----------------------
+
+            for (int i = 0; i < array.Length - 1; i++)
+            {
+                // la fiecare pas, trebuie sa aduc minimul din sub-sirul ramas (i+1 -> capat)
+                // pe pozitia i
+
+                for (int j = i + 1; j < array.Length; j++)
+                {
+                    bool isSwapNeeded;
+                    switch (sortDirection)
+                    {
+                        case SortDirection.Descending:
+                            isSwapNeeded = result[i] < result[j];
+                            break;
+
+                        case SortDirection.Ascending:
+                        default:
+                            isSwapNeeded = result[i] > result[j];
+                            break;
+                    }
+
+                    if (isSwapNeeded)
+                    {
+                        int temp = result[i];
+                        result[i] = result[j];
+                        result[j] = temp;
+                    }
+                }
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Calculates the fibonacci sequence till n.
+        /// </summary>
+        /// <param name="n">The number till which we calculate fibonacci sequence.</param>
+        /// <returns>The fibonacci sequence till n.</returns>
+        public static long[] Fibonacci(int n)
+        {
+            if (n < 0)
+            {
+                return new long[0];
+            }
+
+            if (n == 0)
+            {
+                return new long[] { 0 };
+            }
+
+            if (n == 1)
+            {
+                return new long[] { 0, 1 };
+            }
+
+            // For n >= 2
+            long[] result = new long[n + 1];
+            result[0] = 0;
+            result[1] = 1;
+
+            for (int i = 2; i <= n; i++)
+            {
+                result[i] = result[i - 1] + result[i - 2];
+            }
+
+            return result;
+        }
+
+        public static int[] PrimesEratostene(int n)
+        {
+            if (n <= 1)
+            {
+                return new int[0];
+            }
+
+            // for now on, n >= 2
+            bool[] isCut = new bool[n + 1];
+            int countPrimes = 0;
+            isCut[0] = true;
+            isCut[1] = true;
+
+            for (int i = 2; i < isCut.Length; i++)
+            {
+                if (isCut[i])
+                {
+                    continue;
+                }
+
+                // "i" is prime
+                countPrimes++;
+
+                // cut multiples of "i"
+                for (int factor = 2; i * factor <= n;factor++)
+                {
+                    isCut[i * factor] = true;
+                }
+            }
+
+            int[] result = new int[countPrimes];
+            for (int i = 0, indexPrime = 0; i < isCut.Length; i++)
+            {
+                if (!isCut[i])
+                {
+                    result[indexPrime] = i;
+                    indexPrime++;
+                }
+            }
+
+            return result;
         }
 
         /// <summary>
@@ -189,6 +327,19 @@ namespace ArrayUtilities
         {
             string labelToPrint = label ?? "Array";
             string arrayElementsList = string.Join(", ", array ?? new int[0]);
+
+            Console.WriteLine($"{labelToPrint}=[{arrayElementsList}]");
+        }
+
+        /// <summary>
+        /// Prints the array to the console.
+        /// </summary>
+        /// <param name="label">Label used before the array elements.</param>
+        /// <param name="array">The array elements.</param>
+        public static void Print(string label, long[] array)
+        {
+            string labelToPrint = label ?? "Array";
+            string arrayElementsList = string.Join(", ", array ?? new long[0]);
 
             Console.WriteLine($"{labelToPrint}=[{arrayElementsList}]");
         }
