@@ -577,6 +577,11 @@ namespace ArrayUtilities
             return cartesian;
         }
 
+        /// <summary>
+        /// Prints a jagged array.
+        /// </summary>
+        /// <param name="label">The label.</param>
+        /// <param name="array">The jagged array</param>
         public static void PrintJaggedArray(string label, int[][] array)
         {
             StringBuilder builder = new StringBuilder();
@@ -616,6 +621,37 @@ namespace ArrayUtilities
             builder.Append("]");
 
             Console.WriteLine(builder.ToString());
+        }
+
+        public static int[][] Frequencies(int[] array)
+        {
+            // array = [1,      2,      1,      3,      1, 5, 2]
+            // freq  = [3,      2,      3,      1,      3, 1, 2]
+            //         [(1, 3), (2, 2), (1, 3), (3, 1), ...
+            // 1 - 3 ori
+            // 2 - 2 ori
+            // 3 - 1 data
+            // 5 - 1 data
+
+            int[][] elementsWithFrequencies = new int[array.Length][];
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                int element = array[i];
+                int frequencies = 1;
+
+                for (int j = 0; j < array.Length; j++)
+                {
+                    if ((i != j) && (array[j] == element))
+                    {
+                        frequencies++;
+                    }
+                }
+
+                elementsWithFrequencies[i] = new[] { element, frequencies };
+            }
+
+            return elementsWithFrequencies;
         }
     }
 }

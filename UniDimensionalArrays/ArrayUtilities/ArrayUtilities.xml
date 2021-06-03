@@ -129,6 +129,13 @@
             <param name="set2">The second set.</param>
             <returns>The cartesian product of 2 sets and returns the pairs as an jagged array.</returns>
         </member>
+        <member name="M:ArrayUtilities.ArrayHelper.PrintJaggedArray(System.String,System.Int32[][])">
+            <summary>
+            Prints a jagged array.
+            </summary>
+            <param name="label">The label.</param>
+            <param name="array">The jagged array</param>
+        </member>
         <member name="T:ArrayUtilities.ConsoleHelper">
             <summary>
             Utilities for working with the console.
