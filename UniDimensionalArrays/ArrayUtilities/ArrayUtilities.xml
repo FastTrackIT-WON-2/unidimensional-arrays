@@ -105,6 +105,14 @@
             <param name="matrix">The matrix.</param>
             <returns>The elements from the main diagonal as an array of integers.</returns>
         </member>
+        <member name="M:ArrayUtilities.ArrayHelper.SumMatrices(System.Int32[0:,0:],System.Int32[0:,0:])">
+            <summary>
+            Calculates the sum of two matrices.
+            </summary>
+            <param name="matrix1">The first matrix.</param>
+            <param name="matrix2">The second matrix.</param>
+            <returns>The matrix representing the sum of the two matrices.</returns>
+        </member>
         <member name="T:ArrayUtilities.ConsoleHelper">
             <summary>
             Utilities for working with the console.

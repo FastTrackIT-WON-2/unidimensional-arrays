@@ -461,5 +461,43 @@ namespace ArrayUtilities
 
             return result;
         }
+
+        /// <summary>
+        /// Calculates the sum of two matrices.
+        /// </summary>
+        /// <param name="matrix1">The first matrix.</param>
+        /// <param name="matrix2">The second matrix.</param>
+        /// <returns>The matrix representing the sum of the two matrices.</returns>
+        public static int[,] SumMatrices(int[,] matrix1, int[,] matrix2)
+        {
+            if (matrix1 is null || matrix2 is null)
+            {
+                return new int[0, 0];
+            }
+
+            int rowsCount1 = matrix1.GetLength(0);
+            int colsCount1 = matrix1.GetLength(1);
+
+            int rowsCount2 = matrix2.GetLength(0);
+            int colsCount2 = matrix2.GetLength(1);
+
+            if (rowsCount1 != rowsCount2 || colsCount1 != colsCount2)
+            {
+                // cannot calculate the sum
+                return new int[0, 0];
+            }
+
+            int[,] sum = new int[rowsCount1, colsCount1];
+
+            for (int row = 0; row < rowsCount1; row++)
+            {
+                for (int col = 0; col < colsCount1; col++)
+                {
+                    sum[row, col] = matrix1[row, col] + matrix2[row, col];
+                }
+            }
+
+            return sum;
+        }
     }
 }
