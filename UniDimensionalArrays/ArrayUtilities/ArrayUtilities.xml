@@ -121,6 +121,14 @@
             <param name="matrix2">The second matrix.</param>
             <returns>The matrix representing the product of the two matrices.</returns>
         </member>
+        <member name="M:ArrayUtilities.ArrayHelper.CartesianProduct(System.Int32[],System.Int32[])">
+            <summary>
+            Calculates the cartesian product of 2 sets and returns the pairs as an jagged array.
+            </summary>
+            <param name="set1">The first set.</param>
+            <param name="set2">The second set.</param>
+            <returns>The cartesian product of 2 sets and returns the pairs as an jagged array.</returns>
+        </member>
         <member name="T:ArrayUtilities.ConsoleHelper">
             <summary>
             Utilities for working with the console.

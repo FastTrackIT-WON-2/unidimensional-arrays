@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 
 namespace ArrayUtilities
 {
@@ -542,6 +543,79 @@ namespace ArrayUtilities
             }
 
             return product;
+        }
+
+        /// <summary>
+        /// Calculates the cartesian product of 2 sets and returns the pairs as an jagged array.
+        /// </summary>
+        /// <param name="set1">The first set.</param>
+        /// <param name="set2">The second set.</param>
+        /// <returns>The cartesian product of 2 sets and returns the pairs as an jagged array.</returns>
+        public static int[][] CartesianProduct(int[] set1, int[] set2)
+        {
+            int[][] cartesian = new int[set1.Length * set2.Length][];
+
+            for (int i = 0, indexCartesian = 0; i < set1.Length; i++)
+            {
+                for (int j = 0; j < set2.Length; j++, indexCartesian++)
+                {
+                    cartesian[indexCartesian] = new int[] { set1[i], set2[j] };
+                }
+            }
+
+            /* 
+             * Do the math on indices:
+             * 
+            for (int i = 0; i < set1.Length; i++)
+            {
+                for (int j = 0; j < set2.Length; j++)
+                {
+                    cartesian[i * set2.Length + j] = new int[] { set1[i], set2[j] };
+                }
+            }
+            */
+            return cartesian;
+        }
+
+        public static void PrintJaggedArray(string label, int[][] array)
+        {
+            StringBuilder builder = new StringBuilder();
+
+            string labelToPrint = label ?? "Jagged Array";
+
+            builder.Append($"{labelToPrint}=");
+
+            if (array is null)
+            {
+                builder.Append("<null>");
+                Console.WriteLine(builder.ToString());
+                return;
+            }
+
+            builder.Append("[");
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                int[] element = array[i];
+                if (element is null)
+                {
+                    builder.Append("(<null>)");
+                }
+                else
+                {
+                    string elementsList = string.Join(", ", element);
+                    builder.Append($"({elementsList})");
+                }
+
+                if (i < array.Length - 1)
+                {
+                    builder.Append(", ");
+                }
+            }
+
+            builder.Append("]");
+
+            Console.WriteLine(builder.ToString());
         }
     }
 }

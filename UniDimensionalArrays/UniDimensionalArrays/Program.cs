@@ -7,6 +7,13 @@ namespace UniDimensionalArrays
     {
         static void Main(string[] args)
         {
+            int[] sir1 = { 1, 2, 3 };
+            int[] sir2 = { 9, 8 };
+
+            int[][] result = ArrayHelper.CartesianProduct(sir1, sir2);
+            ArrayHelper.PrintJaggedArray("Cartesian Product", result);
+            return;
+
             int[,] matrix1 = ArrayHelper.ReadMatrix("matrix1");
             ArrayHelper.PrintMatrix("matrix1", matrix1);
 
