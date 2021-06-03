@@ -13,8 +13,8 @@ namespace UniDimensionalArrays
             int[,] matrix2 = ArrayHelper.ReadMatrix("matrix2");
             ArrayHelper.PrintMatrix("matrix2", matrix2);
 
-            int[,] sum = ArrayHelper.SumMatrices(matrix1, matrix2);
-            ArrayHelper.PrintMatrix("Sum matrix", sum);
+            int[,] product = ArrayHelper.ProductMatrices(matrix1, matrix2);
+            ArrayHelper.PrintMatrix("Prod matrix", product);
 
             // ArrayHelper.PrintMainDiagonal(matrix1);
             // int[] mainDiagonal = ArrayHelper.GetMainDiagonal(matrix1);

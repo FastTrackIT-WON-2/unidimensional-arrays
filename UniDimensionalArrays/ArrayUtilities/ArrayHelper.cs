@@ -499,5 +499,49 @@ namespace ArrayUtilities
 
             return sum;
         }
+
+        /// <summary>
+        /// Calculates the product of two matrices.
+        /// </summary>
+        /// <param name="matrix1">The first matrix.</param>
+        /// <param name="matrix2">The second matrix.</param>
+        /// <returns>The matrix representing the product of the two matrices.</returns>
+        public static int[,] ProductMatrices(int[,] matrix1, int[,] matrix2)
+        {
+            if (matrix1 is null || matrix2 is null)
+            {
+                return new int[0, 0];
+            }
+
+            int rowsCount1 = matrix1.GetLength(0);
+            int colsCount1 = matrix1.GetLength(1);
+
+            int rowsCount2 = matrix2.GetLength(0);
+            int colsCount2 = matrix2.GetLength(1);
+
+            if (colsCount1 != rowsCount2)
+            {
+                // cannot calculate product
+                return new int[0, 0];
+            }
+
+            int[,] product = new int[rowsCount1, colsCount2];
+
+            for (int i = 0; i < rowsCount1; i++)
+            {
+                for (int j = 0; j < colsCount2; j++)
+                {
+                    int sum = 0;
+                    for (int k = 0; k < colsCount1; k++)
+                    {
+                        sum += matrix1[i, k] * matrix2[k, j];
+                    }
+
+                    product[i, j] = sum;
+                }
+            }
+
+            return product;
+        }
     }
 }

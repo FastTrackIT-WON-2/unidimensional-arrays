@@ -113,6 +113,14 @@
             <param name="matrix2">The second matrix.</param>
             <returns>The matrix representing the sum of the two matrices.</returns>
         </member>
+        <member name="M:ArrayUtilities.ArrayHelper.ProductMatrices(System.Int32[0:,0:],System.Int32[0:,0:])">
+            <summary>
+            Calculates the product of two matrices.
+            </summary>
+            <param name="matrix1">The first matrix.</param>
+            <param name="matrix2">The second matrix.</param>
+            <returns>The matrix representing the product of the two matrices.</returns>
+        </member>
         <member name="T:ArrayUtilities.ConsoleHelper">
             <summary>
             Utilities for working with the console.
