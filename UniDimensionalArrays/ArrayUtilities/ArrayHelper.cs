@@ -394,6 +394,10 @@ namespace ArrayUtilities
             }
         }
 
+        /// <summary>
+        /// Prints the matrix main diagonal.
+        /// </summary>
+        /// <param name="matrix">The matrix.</param>
         public static void PrintMainDiagonal(int[,] matrix)
         {
             if (matrix is null)
@@ -430,6 +434,32 @@ namespace ArrayUtilities
                 }
             }
             */
+        }
+
+        /// <summary>
+        /// Gets the elements from the main diagonal as an array of integers.
+        /// </summary>
+        /// <param name="matrix">The matrix.</param>
+        /// <returns>The elements from the main diagonal as an array of integers.</returns>
+        public static int[] GetMainDiagonal(int[,] matrix)
+        {
+            if (matrix is null)
+            {
+                return new int[0];
+            }
+
+            int rowsCount = matrix.GetLength(0);
+            int colsCount = matrix.GetLength(1);
+
+            int maxSize = Math.Min(rowsCount, colsCount);
+
+            int[] result = new int[maxSize];
+            for (int i = 0; i < maxSize; i++)
+            {
+                result[i] = matrix[i, i];
+            }
+
+            return result;
         }
     }
 }

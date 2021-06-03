@@ -92,6 +92,19 @@
             <param name="label">The matrix label.</param>
             <param name="matrix">The matrix.</param>
         </member>
+        <member name="M:ArrayUtilities.ArrayHelper.PrintMainDiagonal(System.Int32[0:,0:])">
+            <summary>
+            Prints the matrix main diagonal.
+            </summary>
+            <param name="matrix">The matrix.</param>
+        </member>
+        <member name="M:ArrayUtilities.ArrayHelper.GetMainDiagonal(System.Int32[0:,0:])">
+            <summary>
+            Gets the elements from the main diagonal as an array of integers.
+            </summary>
+            <param name="matrix">The matrix.</param>
+            <returns>The elements from the main diagonal as an array of integers.</returns>
+        </member>
         <member name="T:ArrayUtilities.ConsoleHelper">
             <summary>
             Utilities for working with the console.
