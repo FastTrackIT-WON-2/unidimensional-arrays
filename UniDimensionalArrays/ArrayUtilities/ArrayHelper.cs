@@ -393,5 +393,43 @@ namespace ArrayUtilities
                 Console.WriteLine();
             }
         }
+
+        public static void PrintMainDiagonal(int[,] matrix)
+        {
+            if (matrix is null)
+            {
+                Console.WriteLine("Matrix is null, no main diagonal to print!");
+                return;
+            }
+
+            int rowsCount = matrix.GetLength(0);
+            int colsCount = matrix.GetLength(1);
+
+            int maxSize = Math.Min(rowsCount, colsCount);
+
+            Console.WriteLine("Main diagonal elements: ");
+            for (int i = 0; i <maxSize; i++)
+            {
+                Console.Write($"{matrix[i, i],6}, ");
+            }
+
+            /* ------------------------------------------------
+             * Initial attempt:
+             * (inefficient because of 2 for(s))
+             * ------------------------------------------------
+            Console.WriteLine("Main diagonal elements: ");
+
+            for (int row = 0; row < rowsCount; row++)
+            {
+                for (int col = 0; col < colsCount; col++)
+                {
+                    if (row == col)
+                    {
+                        Console.Write($"{matrix[row, col],6}, ");
+                    }
+                }
+            }
+            */
+        }
     }
 }

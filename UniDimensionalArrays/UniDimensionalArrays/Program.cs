@@ -9,6 +9,7 @@ namespace UniDimensionalArrays
         {
             int[,] matrix1 = ArrayHelper.ReadMatrix("matrix1");
             ArrayHelper.PrintMatrix("matrix1", matrix1);
+            ArrayHelper.PrintMainDiagonal(matrix1);
 
             /*
             int[] array = { 2, 5, -100, 20, 500 };
